@@ -1,13 +1,13 @@
 <?php
 
-require_once "../business/promotionBLL.php";
+require_once "../business/promotionBll.php";
     
-    $promotionBAL = new promotionBLL();
+    $promotionBal = new promotionBll();
 
 if(!empty($_POST)){
 	$promotion = new promotion();
 	$promotion->setName($_POST['name']);
-	$promotionBAL->addPromotion($promotion);
+	$promotionBal->addPromotion($promotion);
 	
 	// redirect to index.php
 }

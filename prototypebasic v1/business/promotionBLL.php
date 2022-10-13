@@ -3,7 +3,8 @@
 require_once "../data-access/promotionDAL.php";
 
 class PromotionBLL {
-
+    // private $promotionBLL = null;
+    
     public function getAllPromotions(){
         $promotionBLL = new PromotionDAL();
 

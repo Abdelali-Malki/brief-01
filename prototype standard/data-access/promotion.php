@@ -1,22 +1,40 @@
 <?php
-class Promotion{
-    private $id;
-    private $name;
+    class promotion{
+        private $servername = "localhost";
+        private $username = "root";
+        private $password = "";
+        private $db = "gestiondespromotions_v1";
+        private $conn;
 
-    public function getId(){
-        return $this->id;
-    }
+        function __construct($id_promotion,$nom){
+            $this->id_promotion = $id_promotion;
+            $this->nom = $nom;
+            $this->conn = new mysqli($this->servername,$this->username,$this->password,$this->db);
+        }
 
-    public function setId($id){
-        $this->id = $id;
-    }
+        function insert(){
+            $addpromo = "INSERT INTO promotion(nom) VALUES('$this->nom')";
+            $this->conn->query($addpromo);
+        }
 
-    public function getName(){
-        return $this->name;
-    }
+           
+        function update(){
+            $update = "UPDATE promotion SET nom = '$this->nom' WHERE id_promotion = $this->id_promotion";
+            $this->conn->query($update);
+        
+        }
 
-    public function setName($name){
-        $this->name = $name;
-    }
-}
+
+        function delete(){
+            $delete = "DELETE FROM promotion WHERE id_promotion = $this->id_promotion ";
+            $this->conn->query($delete);
+        
+        }
+
+        
+       
+
+        
+
+      }
 ?>
